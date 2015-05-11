@@ -12,14 +12,10 @@ var server = app.listen(app.get('port'), function() {
 var io = require('socket.io').listen(server);
 
 io.on('connection', function(socket) {
-	
 	console.log("Client connected");
-	
 	socket.on("stateChanged", function(state){
-	    
 		console.log("State Changed :  " + state);
-		
-		io.emit("updateSate", state);
+		io.emit("updateState", state);
 		
 	});
 });
